@@ -7,8 +7,15 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
-    @idea.save
-    redirect_to category_path(@idea.category)
+    if @idea.save
+      redirect_to category_path(@idea.category)
+    else
+      redirect_to new_idea_path
+    end
+  end
+
+  def show
+    @idea = Idea.find(params[:id])
   end
 
   private
