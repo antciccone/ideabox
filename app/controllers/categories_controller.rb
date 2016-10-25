@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    @ideas = @category.ideas
+    
   end
 
   def create

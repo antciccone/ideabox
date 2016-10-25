@@ -1,1 +1,8 @@
 <%= @category.name %>
+
+<p> List of <%= @category.name %> Ideas </p>
+
+<% @ideas.each do |idea| %>
+<%= link_to idea.title, category_idea_path(@category, idea) %></br>
+
+<% end %>
