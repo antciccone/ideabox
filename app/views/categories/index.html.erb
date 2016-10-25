@@ -1,7 +1,8 @@
 <h1> List of Categories </h1>
 <p><%= link_to "Create New Category", new_category_path %></p>
 
-<% @categories.each do |category| %>
+<% @categories.each do |category| %></br>
 <%= category.name %></br>
-<%= link_to "Edit", edit_category_path(category) %></br>
+<%= link_to "Edit", edit_category_path(category) %>
+<%= link_to "Delete", category_path(category), method: :delete %></br>
 <% end %>
