@@ -4,8 +4,6 @@
 
   <%= f.label :notes %>
   <%= f.text_field :notes %>
-
-
   <%= f.collection_select :category_id, @categories,:id,:name, include_black: true %>
 
   <%= f.submit %>

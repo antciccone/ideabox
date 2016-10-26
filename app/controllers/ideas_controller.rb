@@ -7,6 +7,7 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
+    @idea.user_id = session[:user_id]
     if @idea.save
       redirect_to category_path(@idea.category)
     else
@@ -29,7 +30,7 @@ class IdeasController < ApplicationController
       redirect_to category_idea_path(@idea.category, @idea)
     else
       redirect_to edit_idea_path
-    end 
+    end
   end
 
   def destroy
@@ -41,6 +42,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :notes, :category_id)
+    params.require(:idea).permit(:title, :notes, :category_id, :user_id)
   end
 end

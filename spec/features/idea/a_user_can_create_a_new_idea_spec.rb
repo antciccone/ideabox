@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "Creating a new idea" do
   scenario "a user can create a new idea and give it a category" do
+    User.create(name: "Ant", password: "123", email: "aciccone@bu.edu")
 
     category = Category.create(name: "Web Tech")
     category_two = Category.create(name: "Mobile Tech")
