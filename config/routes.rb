@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     resources :ideas, only:  [:show]
   end
 
-  resources :ideas, only: [:new, :create]
+  resources :ideas, only: [:new, :create, :edit, :update, :destroy]
+  resources :images
+  resources :users, only: [:new, :create, :show]
 end

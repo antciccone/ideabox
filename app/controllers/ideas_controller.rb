@@ -18,6 +18,26 @@ class IdeasController < ApplicationController
     @idea = Idea.find(params[:id])
   end
 
+  def edit
+    @idea = Idea.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @idea = Idea.find(params[:id])
+    if @idea.update(idea_params)
+      redirect_to category_idea_path(@idea.category, @idea)
+    else
+      redirect_to edit_idea_path
+    end 
+  end
+
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    redirect_to category_path(@idea.category)
+  end
+
   private
 
   def idea_params
