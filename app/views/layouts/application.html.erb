@@ -11,6 +11,9 @@
   <body>
     <%#flash.each do |key, value| %>
     <%#value %>
+    <% if session[:user_id] %>
+    <p> Logout </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
