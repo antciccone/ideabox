@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      #should add a flash to say passwords dont match 
-      redirect_to new_user_path
+      flash[:fail] = "Email and password don't match"
+      redirect_to login_path
     end
   end
 

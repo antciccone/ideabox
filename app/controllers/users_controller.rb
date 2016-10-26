@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       flash[:success] = "You have successfully created a user"
       redirect_to user_path(@user)
     else
-      flash[:failed] = "Your passwords do not match"
       redirect_to new_user_path
     end
   end
