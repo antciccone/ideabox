@@ -3,11 +3,16 @@
     <div class="col-xs-6 col-sm-3">
 <center<p>Category Name:<%= @category.name %></p>
 
-<p><strong> List of <%= @category.name %> Ideas</strong> </p>
-<ol>
-<% @ideas.each do |idea| %>
+<p><strong> List of <%= @category.name %> Ideas </strong> </p>
+<% if @user == nil %>
+<p> You can only view your ideas if you are logged in!
+  <% else %>
+<% @user.ideas.each do |idea| %>
+<%= idea.title %>
 <li><%= link_to idea.title, category_idea_path(@category, idea) %></li>
 <% end %>
+<% end %>
+
 </ol>
 </div>
 </div>

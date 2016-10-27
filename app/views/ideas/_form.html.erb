@@ -1,5 +1,5 @@
 <div class="idea_form">
-<%= form_for @idea do |f| %>
+<%= form_for [@idea.category, @idea] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 

@@ -16,8 +16,8 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @image = Image.new
     @idea = Idea.find(params[:id])
+    @image = Image.new
   end
 
   def edit

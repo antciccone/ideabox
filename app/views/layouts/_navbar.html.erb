@@ -1,8 +1,8 @@
 <div class="abc">
-<ul>
-<li>IdeaBox</li>
 
-</ul>
+<p>IdeaBox</p>
+
+
 </div>
         <!-- /#sidebar-wrapper -->
     <div id="wrapper">
@@ -20,12 +20,19 @@
                 <a <%= link_to "All Images", images_path%></a>
             </li>
             <li>
+              <a <%= link_to "New Idea", new_idea_path %></a>
+            </li>
+            <li>
               <a href="/users/new">Create a New User</a>
             </li>
             <li>
-              <a <%= link_to "New Idea", new_idea_path %></a>
+              <% if session[:user_id].nil? %>
+              <% "not logged in" %>
+              <% else %>
+              <a <%= link_to "Account Details", user_path(User.find(session[:user_id]))%></a>
+              <% end %>
             </li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li class="dropdown-header">Dropdown heading</li>
@@ -35,7 +42,7 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
             <li>
               <% if logged_in? %>
                 <li><%= link_to "Logout", logout_path, method: :delete %></li>

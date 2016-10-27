@@ -3,18 +3,21 @@ class ImagesController < ApplicationController
   def index
     @images = Image.all
   end
-  
+
   def new
     @image = Image.new
   end
 
   def create
+    @idea = Idea.find(params[:idea_id])
     @image = Image.new(image_params)
-
-    # @image_ideas = ImageIdea.new
+    @image_idea = ImageIdea.new
     @image.save
-    # @image_ideas.image_id = @image.id
-    redirect_to image_path(@image)
+    @image_idea.image_id = @image.id
+    @image_idea.idea_id = params[:idea_id]
+    @image_idea.save
+
+    redirect_to category_idea_path(@idea.category, @idea)
   end
 
   def show
