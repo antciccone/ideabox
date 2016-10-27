@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :ideas, only: [:new, :create, :index, :destroy]
-  resources :images
+  resources :images, only: [:index, :edit, :update, :new]
   resources :users
 
   get     '/login',  to: 'sessions#new'
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories
+    resources :images
   end
 end

@@ -17,11 +17,4 @@
 </div>
 </div>
 
-
-<%= form_for(@image, html: {multipart: true}) do |f| %>
-<%= f.label  "Attach an Image" %><br/>
-<%= f.file_field :image %>
-<%= hidden_field_tag :idea_id, @idea.id %>
-<%= f.submit "Upload Image", class: 'btn btn-default btn-sm'%>
-<% end %>
 </div>

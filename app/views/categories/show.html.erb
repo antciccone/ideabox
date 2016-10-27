@@ -5,12 +5,15 @@
 
 <p><strong> List of <%= @category.name %> Ideas </strong> </p>
 <% if @user == nil %>
-<p> <p> 
+<p> <p>
   <% else %>
+  <ol>
 <% @user.ideas.each do |idea| %>
-<%= idea.title %>
+
 <li><%= link_to idea.title, category_idea_path(@category, idea) %></li>
+<%= link_to "Edit", edit_category_idea_path(@category, idea) %>
 <% end %>
+<ol>
 <% end %>
 
 </ol>

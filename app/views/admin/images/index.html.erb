@@ -1,0 +1,7 @@
+<div class="container-fluid">
+<p><%= link_to "Add a New Image", new_admin_image_path %><p>
+<% @images.each do |image| %>
+<%= image_tag image.image.url, :width => '25%' %>
+<%= link_to "Delete", admin_image_path(image), method: :delete %>
+<% end %>
+</div>
