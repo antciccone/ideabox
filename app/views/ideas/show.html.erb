@@ -11,10 +11,10 @@
 </br>
 </br>
 
-<%= form_for [@idea, @image] html: {multipart: true}) do |f| %>
+
+<%= form_for(@image, html: {multipart: true}) do |f| %>
 <%= f.label  "Attach an Image" %><br/>
 <%= f.file_field :image %>
-<%= f.hidden_field 'idea_id', @idea.id %>
 <%= f.submit %>
 <% end %>
 </div>
