@@ -5,7 +5,7 @@
 
 <p><strong> List of <%= @category.name %> Ideas </strong> </p>
 <% if @user == nil %>
-<p> You can only view your ideas if you are logged in!
+<p> <p> 
   <% else %>
 <% @user.ideas.each do |idea| %>
 <%= idea.title %>
