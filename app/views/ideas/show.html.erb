@@ -1,6 +1,22 @@
-<%= link_to @idea.category.name, category_path(@idea.category) %>
+<div class="container-fluid">
+<p><%= link_to @idea.category.name, category_path(@idea.category) %><p>
 
 <p><strong>Idea Name:</strong> <%= @idea.title %></p>
 <p><strong>Idea Content:</strong> <%= @idea.notes %></p>
 <%= link_to "Delete", idea_path(@idea), method: :delete %>
 <%= link_to "Edit", edit_idea_path(@idea) %>
+
+<div>
+</br>
+</br>
+</br>
+
+<%= form_for [@idea, @image] html: {multipart: true}) do |f| %>
+<%= f.label  "Attach an Image" %><br/>
+<%= f.file_field :image %>
+<%= f.hidden_field 'idea_id', @idea.id %>
+<%= f.submit %>
+<% end %>
+</div>
+
+</div>

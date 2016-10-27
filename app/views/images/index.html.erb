@@ -1,0 +1,6 @@
+<div class="container-fluid">
+
+<% @images.each do |image| %>
+<%= image_tag image.image.url, :width => '25%' %>
+<% end %>
+</div>
