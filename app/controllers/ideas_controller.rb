@@ -22,6 +22,8 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    @images = Image.all
+
     @idea = Idea.find(params[:id])
     @categories = Category.all
   end

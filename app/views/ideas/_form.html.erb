@@ -1,14 +1,19 @@
-<div class="idea_form">
-<%= form_for [@idea.category, @idea] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :notes %>
-  <%= f.text_field :notes %>
-  <%= f.collection_select :category_id, @categories,:id,:name, include_black: true %>
-  <% @images.each do |image| %>
-  <p><%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %></p>
-  <p><%= image_tag image.image.url, :width => '25%' %><p>
-  <%end %>
-  <%= f.submit class: 'btn btn-default btn-sm' %>
-<% end %>
+<div class="container-fluid">
+    <div class="idea_form">
+        <%= form_for [@idea.category, @idea] do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :notes %>
+        <%= f.text_field :notes %>
+        <%= f.collection_select :category_id, @categories,:id,:name, include_black: true %>
+        <%= f.submit class: 'btn btn-default btn-sm' %>
+      </div>
+    </br>
+      <div>
+        <% @images.each do |image| %>
+        <center><p>  <%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %>
+          <%= image_tag image.image.url, :width => '25%' %></p></cetner>
+        <%end %>
+      </div>
+    <% end %>
 </div>
