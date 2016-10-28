@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :ideas, only: [:new, :create, :index, :destroy]
-  resources :images, only: [:index, :edit, :update, :new]
+  resources :images, only: [:index, :edit]
   resources :users
 
   get     '/login',  to: 'sessions#new'

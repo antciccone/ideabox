@@ -10,6 +10,10 @@ class Admin::CategoriesController < Admin::BaseController
     @ideas = @category.ideas
   end
 
+  def new
+    @category = Category.new
+  end
+
   def create
     @category = Category.new(category_params)
     if @category.save

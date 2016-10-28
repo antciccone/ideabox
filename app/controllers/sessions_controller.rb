@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user.nil?
       flash[:danger] = "User does not exist. Create one below"
-      redirect_to new_user_path
+      redirect_to login_path
+    elsif @user.authenticate(params[:password]) && @user.admin?
+      flash[:success] = "You Successfully Logged in!"
+      session[:user_id] = @user.id
+      redirect_to admin_categories_path
     elsif @user.authenticate(params[:password])
       flash[:success] = "You Successfully Logged in!"
       session[:user_id] = @user.id
