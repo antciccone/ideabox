@@ -2,11 +2,13 @@
 <%= form_for [@idea.category, @idea] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
   <%= f.label :notes %>
   <%= f.text_field :notes %>
   <%= f.collection_select :category_id, @categories,:id,:name, include_black: true %>
-
+  <% @images.each do |image| %>
+  <p><%= check_box_tag(:image_id, image.id, false, name: "idea[image_ids][]", id: "image-#{image.id}", include_blank: true) %></p>
+  <p><%= image_tag image.image.url, :width => '25%' %><p>
+  <%end %>
   <%= f.submit class: 'btn btn-default btn-sm' %>
 <% end %>
 </div>

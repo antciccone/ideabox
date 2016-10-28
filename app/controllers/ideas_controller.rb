@@ -3,7 +3,7 @@ class IdeasController < ApplicationController
   def new
     @idea = Idea.new
     @categories = Category.all
-    @images = Image.all 
+    @images = Image.all
   end
 
   def create
@@ -44,6 +44,6 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :notes, :category_id, :user_id)
+    params.require(:idea).permit(:title, :notes, :category_id, :user_id, image_ids: [] )
   end
 end

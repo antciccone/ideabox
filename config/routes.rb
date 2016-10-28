@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show] do
-    resources :ideas, only:  [:show, :edit, :update]
+    resources :ideas, only:  [:show, :edit, :update, :destroy]
   end
 
-  resources :ideas, only: [:new, :create, :index, :destroy]
+  resources :ideas, only: [:new, :create, :index]
   resources :images, only: [:index, :edit]
   resources :users
 

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin?
-    current_user && current_user.admin?  #put this in your application controller
+    current_user && current_user.admin?
   end
 
 
